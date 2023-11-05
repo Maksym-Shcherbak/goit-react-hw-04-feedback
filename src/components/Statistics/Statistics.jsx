@@ -8,7 +8,6 @@ export const Statistics = ({
   total,
   positivePercentage,
 }) => {
-  console.log(total);
   return (
     <ul>
       <li className={css.statisticsItem}>
