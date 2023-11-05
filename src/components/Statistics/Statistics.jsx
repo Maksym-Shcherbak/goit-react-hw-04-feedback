@@ -1,27 +1,42 @@
 import css from './Statistics.module.css';
 import PropTypes from 'prop-types';
 
-export const Statistics = ({ options, total, positivePercentage }) => {
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
+  console.log(total);
   return (
     <ul>
-      {options.map(option => {
-        return (
-          <li key={option[0]} className={css.statisticsItem}>
-            <p>
-              {option[0]}:{' '}
-              <span className={css.statisticsNumber}>{option[1]}</span>
-            </p>
-          </li>
-        );
-      })}
-      <li key="total" className={css.statisticsItem}>
+      <li className={css.statisticsItem}>
+        <p>
+          Good:
+          <span className={css.statisticsNumber}> {good}</span>
+        </p>
+      </li>
+      <li className={css.statisticsItem}>
+        <p>
+          Neutral:
+          <span className={css.statisticsNumber}> {neutral}</span>
+        </p>
+      </li>
+      <li className={css.statisticsItem}>
+        <p>
+          Bad:
+          <span className={css.statisticsNumber}> {bad}</span>
+        </p>
+      </li>
+      <li className={css.statisticsItem}>
         <p>
           total: <span className={css.statisticsNumber}> {total}</span>
         </p>
       </li>
-      <li key="positivePercentage" className={css.statisticsItem}>
+      <li className={css.statisticsItem}>
         <p>
-          Positive feedback:{' '}
+          Positive feedback:
           <span className={css.statisticsNumber}> {positivePercentage}%</span>
         </p>
       </li>
@@ -32,5 +47,4 @@ export const Statistics = ({ options, total, positivePercentage }) => {
 Statistics.propTypes = {
   total: PropTypes.number.isRequired,
   positivePercentage: PropTypes.number.isRequired,
-  options: PropTypes.arrayOf(PropTypes.array).isRequired,
 };
